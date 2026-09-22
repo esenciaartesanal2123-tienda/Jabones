@@ -1,0 +1,27 @@
+# === CONEXIÓN CON TU REPOSITORIO ===
+backend:
+  name: github
+  repo: esenciaartesanal2123-tienda/Jabones   # usuario/repositorio
+  branch: main                                 # ¡confirma el nombre real de tu rama! (main o master)
+  base_url: https://api.netlify.com            # el "portero" gratuito que maneja el login
+
+# Carpeta donde Decap guardará las imágenes que subas desde el panel
+media_folder: "assets/images/productos"
+public_folder: "/assets/images/productos"
+
+# === QUÉ PUEDE EDITAR EL PANEL ===
+collections:
+  - name: "catalogo"
+    label: "Catálogo de Jabones"
+    files:
+      - name: "productos"
+        label: "Productos"
+        file: "catalogo.json"    # 👈 CAMBIA esto por la ruta real de tu archivo (ej: _data/catalog.yml, products.js, etc.)
+        fields:
+          - { label: "Lista de productos", name: "productos", widget: "list", fields: [
+              { label: "Nombre", name: "nombre", widget: "string" },
+              { label: "Precio", name: "precio", widget: "number" },
+              { label: "Descripción", name: "descripcion", widget: "text", required: false },
+              { label: "Foto", name: "imagen", widget: "image", required: false },
+              { label: "Disponible", name: "disponible", widget: "boolean", default: true },
+            ]}
